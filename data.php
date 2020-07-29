@@ -6,12 +6,18 @@
     <title>Document</title>
 </head>
 <body>
+<p>As datas devem ser enviadas no formato dd/mm/aaaa</p>
+<form action="data.php" method="get">
+    <input type="text" placeholder="entre a primeira data:" name="valor"><br>
+    <input type="text" placeholder="entre a segunda data:" name="valor2"><br>
+        <input type="submit">
+        </form>
   <?php
-  $data1 = "25/02/2013";
-  $data2 = "22/02/2013";
+  $data1 = $_GET['valor'];
+  $data2 = $_GET['valor2'];
   // transforma a data do formato BR para o formato americano, ANO-MES-DIA
-  $data1 = explode('-', array_reverse(explode('/', $data1)));
-  $data2 = explode('-', array_reverse(explode('/', $data2)));
+  $data1 = implode('-', array_reverse(explode('/', $data1)));
+  $data2 = implode('-', array_reverse(explode('/', $data2)));
   // converte as datas para segundos
   $d1 = strtotime($data1); 
   $d2 = strtotime($data2);
